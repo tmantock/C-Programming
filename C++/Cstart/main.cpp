@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <limits>
 
 using namespace std;
@@ -34,6 +35,7 @@ void integerTypes() {
   std::cout << "Multiplication: " << value * new_value << '\n';
   std::cout << "Division: " << value / new_value << '\n';
   std::cout << "Modulus: " << value % new_value << '\n';
+  std::cout << "float: " << fixed << fl << '\n';
   std::cout << "Max Int Value " << INT_MAX << endl;
   std::cout << "Min Int Value " << INT_MIN << endl;
   std::cout << "Size of int: " << sizeof(int) << '\n';
