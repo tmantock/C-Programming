@@ -47,10 +47,25 @@ void integerTypes() {
   return;
 }
 
+void userCheck() {
+  string password = "hello";
+  std::cout << "Enter your password" << '\n';
+  string input_password;
+  std::cin >> input_password;
+
+  if (password == input_password) {
+    std::cout << "Your password is correct." << '\n';
+  } else {
+    std::cout << "Please try again." << '\n';
+  }
+
+  return;
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     cout << "Starting Program..." << flush;
-    cout << "Hello, World!" << endl;
+    //cout << "Hello, World!" << endl;
 
     string planet = "Mars";
     string intro = "Hello ";
@@ -61,13 +76,14 @@ int main(int argc, const char * argv[]) {
 
     cout << intro + planet << endl;
 
-    cout << "Number of cats: " << moreCats << endl;
-    cout << "Number of animals: " << moreCats + dogs << endl;
+    //cout << "Number of cats: " << moreCats << endl;
+    //cout << "Number of animals: " << moreCats + dogs << endl;
 
-    cout  << "Hello " << planet << "!" << endl;
+    //cout  << "Hello " << planet << "!" << endl;
 
-    textOutput();
+    //textOutput();
     //textInput();
-    integerTypes();
+    //integerTypes();
+    userCheck();
     return 0;
 }
