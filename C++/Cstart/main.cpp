@@ -76,6 +76,29 @@ int main(int argc, const char * argv[]) {
 
     cout << intro + planet << endl;
 
+    int inc = 0;
+
+    while(inc < 5){
+      std::cout << inc << '\n';
+      inc++;
+    }
+
+    string const SECRET_PASSWORD = "password";
+
+    string input;
+
+    do {
+      std::cout << "Enter your password: " << '\n';
+      std::cin >> input;
+      if(input != SECRET_PASSWORD){
+        std::cout << "Password denied" << '\n';
+      }
+    } while(input != SECRET_PASSWORD);
+
+    std::cout << "Password accepted" << '\n';
+
+
+
     //cout << "Number of cats: " << moreCats << endl;
     //cout << "Number of animals: " << moreCats + dogs << endl;
 
@@ -84,6 +107,6 @@ int main(int argc, const char * argv[]) {
     //textOutput();
     //textInput();
     //integerTypes();
-    userCheck();
+    //userCheck();
     return 0;
 }
