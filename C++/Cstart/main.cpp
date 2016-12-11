@@ -78,24 +78,34 @@ int main(int argc, const char * argv[]) {
 
     int inc = 0;
 
-    while(inc < 5){
-      std::cout << inc << '\n';
-      inc++;
-    }
+    // while(inc < 5){
+    //   std::cout << inc << '\n';
+    //   inc++;
+    // }
 
-    string const SECRET_PASSWORD = "password";
+    // string const SECRET_PASSWORD = "password";
 
-    string input;
+    // string input;
 
-    do {
-      std::cout << "Enter your password: " << '\n';
-      std::cin >> input;
-      if(input != SECRET_PASSWORD){
-        std::cout << "Password denied" << '\n';
+    // do {
+    //   std::cout << "Enter your password: " << '\n';
+    //   std::cin >> input;
+    //   if(input == SECRET_PASSWORD){
+    //     break;
+    //   } else {
+    //     std::cout << "Password denied" << '\n';
+    //   }
+    // } while(true);
+
+    // std::cout << "Password accepted" << '\n';
+
+    for(int i = 0; i < 5; i++){
+      if(i == 3){
+        continue;
       }
-    } while(input != SECRET_PASSWORD);
 
-    std::cout << "Password accepted" << '\n';
+      cout << "Hello World " << i << endl;
+    }
 
 
 
