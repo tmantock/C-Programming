@@ -22,5 +22,17 @@ int main() {
         cout << "Index: "<< i << " Value: " << numberArray[i] << endl;
     }
 
+    string animals[2][3] = {
+        {"Fox", "Dog", "Cat"},
+        {"Mouse", "Squirel", "Parrot"}
+    };
+
+    for(int i = 0; i < sizeof(animals)/sizeof(*animals); i++){
+        for(int x = 0; x < sizeof(animals[i])/sizeof(*animals[i]); x++){
+            cout << animals[i][x] << " " << flush;
+        }
+        cout << endl;
+    }
+
     return 0;
 }
