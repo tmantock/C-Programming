@@ -1,10 +1,12 @@
 #include <iostream>
+#include  "utils.h"
+
 using namespace std;
 
 //Prototype
 //What the function is called and what it takes.
 //Provides information for the compiler which runs synchronously or line by line
-void doSomething();
+// void doSomething();
 
 int main(){
     doSomething();
