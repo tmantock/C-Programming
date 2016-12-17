@@ -7,6 +7,15 @@ void showMenu(){
     cout << "3. Quit" << endl;
 }
 
+int recieveInput() {
+    cout << "Enter selection " << endl;
+
+    int input;
+    cin >> input;
+
+    return input;
+}
+
 void processSelection(int x){
     switch(x){
         case 1:
@@ -27,10 +36,7 @@ void processSelection(int x){
 int main(){
     showMenu();
 
-    cout << "Enter selection " << endl;
-
-    int input;
-    cin >> input;
+    int input = recieveInput();    
     
     processSelection(input);
    
