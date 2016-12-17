@@ -34,6 +34,7 @@ void processSelection(int x){
 }
 
 int main(){
+    //cannot return arrays from functions
     showMenu();
 
     int input = recieveInput();    
