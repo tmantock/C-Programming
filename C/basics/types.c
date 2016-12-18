@@ -7,6 +7,7 @@ int main(){
     long z = 5000671;
 
     printf("%d, %d, %ld \n", x, y, z);
+    printf("%c, %c \n", x, y);
 
     short unsigned int students = 65535;
     long unsigned int teachers = 4294967295;
