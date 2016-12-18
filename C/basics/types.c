@@ -16,7 +16,7 @@ int main(){
     float fl = 2.718;
     double db = 3.145;
     long double ldb = 4.555483847645;
-    printf("%lf, %lf, %Lf \n", fl, db, ldb);
+    printf("%.3f, %.3f, %.12Lf \n", fl, db, ldb);
 
     char a = 'a';
     char b = 'b';
