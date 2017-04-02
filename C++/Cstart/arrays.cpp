@@ -10,7 +10,7 @@ int main() {
 
     cout << values[1] << endl;
 
-    double numbers[4] = { 1.4, 2.5 , 3.14, 4.8} ;
+    double numbers[4] = { 1.4, 2.5 , 3.14, 4.8};
 
     cout << numbers[0] << endl;
 
