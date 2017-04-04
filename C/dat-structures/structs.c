@@ -14,7 +14,7 @@ struct rectangle {
 	int length;
 };
 
-int area(rectangle r);
+int area(rectangle *r);
 
 int circumference(circle c);
 
@@ -25,7 +25,7 @@ int main(void) {
 	x.width = 5;
 	x.length = 6;
 
-	int a = area(x);
+	int a = area(&x);
 
 	int r[5] = {134, 2565, 376, 4877, 5988};
 
@@ -36,8 +36,8 @@ int main(void) {
 	printf("Area: %d\n", a);
 }
 
-int area(rectangle r) {
-	return r.width * r.length;
+int area(rectangle *r) {
+	return (*r).width * (*r).length;
 }
 
 int circumference(circle c) {
