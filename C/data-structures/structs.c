@@ -16,16 +16,23 @@ struct rectangle {
 
 int area(rectangle *r);
 
-int circumference(circle c);
+double circumference(circle *c);
 
 double average(int *arr, int size);
 
 int main(void) {
 	rectangle x;
+	circle c;
+
 	x.width = 5;
 	x.length = 6;
 
+	c.radius = 6;
+	c.diameter = c.radius * 2;
+
 	int a = area(&x);
+
+	double cm = circumference(&c);
 
 	int r[5] = {134, 2565, 376, 4877, 5988};
 
@@ -34,14 +41,16 @@ int main(void) {
 	printf("Average: %f\n", avg);
 
 	printf("Area: %d\n", a);
+
+	printf("Circumference: %f", cm);
 }
 
 int area(rectangle *r) {
 	return (*r).width * (*r).length;
 }
 
-int circumference(circle c) {
-	return c.diameter * 3.14;
+double circumference(circle *c) {
+	return (double)((*c).diameter * 3.14);
 }
 
 double average(int *arr, int size) {
