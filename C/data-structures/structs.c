@@ -1,18 +1,14 @@
 #include <stdio.h>
 
-typedef struct rectangle rectangle;
-
-typedef struct circle circle;
-
-struct circle {
+typedef struct circle {
 	int radius;
 	int diameter;
-};
+} circle;
 
-struct rectangle {
+typedef struct rectangle {
 	int width;
 	int length;
-};
+} rectangle;
 
 int area(rectangle *r);
 
