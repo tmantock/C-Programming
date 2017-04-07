@@ -12,7 +12,7 @@ int main() {
 
     printf("%d\n", age);
 
-    printf("%u\n", &mage);
+    printf("%x\n", &mage);
 
     *mage = age;
 
