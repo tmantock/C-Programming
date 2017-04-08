@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
+size_t my_strlen(const char* str);
+
 int main(void) {
     char *s = "Hello World";
 
-    int l = strlen(s);
+    int l = my_strlen(s);
 
     printf("%d\n", l);
 
@@ -13,4 +15,18 @@ int main(void) {
     printf("%c\n", s[l]);
 
     printf("%p", s);
+}
+
+size_t my_strlen(const char* str) {
+    if(str == NULL) {
+        return 0;
+    }
+
+    int length = 0;
+    const char *ch = str;
+    while(*ch != '\0') {
+        length++;
+        ch++;
+    }
+    return length;
 }
