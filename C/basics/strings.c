@@ -11,4 +11,6 @@ int main(void) {
     printf("%c\n", s[4]);
 
     printf("%c\n", s[l]);
+
+    printf("%p", s);
 }
