@@ -22,9 +22,9 @@ int main(void){
 
     printf("%d\n", length);
 
-    free_nodes(head.next);
+    free_nodes(&head);
 
-    int l = get_length(head.next);
+    int l = get_length(&head);
 
     printf("%d\n", l);
 }
@@ -80,7 +80,7 @@ int free_nodes(struct node* n) {
         return 1;
     }
 
-    struct node* current = n;
+    struct node* current = n->next;
     struct node* next;
 
     while(current->next != NULL) {
@@ -92,7 +92,9 @@ int free_nodes(struct node* n) {
 
     current->next = NULL;
     free(current);
-    
+
+    n->next = NULL;
+
     // All good
     return 0;
 }
