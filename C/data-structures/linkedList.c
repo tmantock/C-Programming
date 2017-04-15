@@ -142,3 +142,40 @@ void append_node(struct node** headref, int data) {
     head->next->data = data;
     head->next->next = NULL;
 }
+
+void append_list(struct node** list_a, struct node** list_b) {
+    assert(list_a != NULL && list_b != NULL);
+    if(list_a == NULL) {
+        *list_a = *list_b;
+        *list_b = NULL;
+        return;
+    }
+
+    struct node* head = *list_a;
+    while(head != NULL) {
+        head = head->next;
+    }
+
+    head->next = *list_b;
+    *list_b = NULL;
+}
+
+struct node* reverse(struct node* list) {
+    if(list == NULL || list->next == NULL) {
+        return list;
+    }
+
+    struct node* curr = list->next;
+    struct node* prev = list;
+    prev->next = NULL;
+
+    while(curr != NULL) {
+        struct node* next = curr->next;
+
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    return prev;
+}
