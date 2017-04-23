@@ -30,9 +30,9 @@ int main(void){
 
     free_nodes(&head);
 
-    // int l = get_length(&head);
+    /* int l = get_length(&head);*/
 
-    // printf("%d\n", l);
+    /* printf("%d\n", l); */
 }
 
 node* generate_node(struct node* previous) {
@@ -47,12 +47,12 @@ node* generate_node(struct node* previous) {
 
 int generate_nodes(struct node* last, int length) {
     if(last == NULL) {
-        // Error Code 1
+        /* Error Code 1 */
         return 1;
     }
 
     if(length == 0) {
-        // Exit out of function. No new nodes for list
+        /* Exit out of function. No new nodes for list */
         return 0;
     }
 
@@ -65,7 +65,7 @@ int generate_nodes(struct node* last, int length) {
         length--;
     }
 
-    // All good
+    /* All good */
     return 0;
 }
 
@@ -100,7 +100,7 @@ node* get_nth(struct node* head, int n) {
 
 int free_nodes(struct node* n) {
     if(n == NULL) {
-        // Cannot remove null
+        /* Cannot remove null */
         return 1;
     }
 
@@ -119,7 +119,7 @@ int free_nodes(struct node* n) {
 
     n->next = NULL;
 
-    // All good
+    /* All good */
     return 0;
 }
 
