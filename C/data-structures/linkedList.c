@@ -14,6 +14,16 @@ int free_nodes(struct node** headref);
 node* get_nth(struct node* head, int n);
 
 int main(void){
+    /* 
+    
+    Changes:
+
+    head is now dynamically allocated
+    You cannot free memory that you do not control
+    C has control of memory that is created by normal means
+    The Developer has control of memory that is dynamically allocated
+
+    */
     node *head = (node *) malloc(sizeof(node));
     head->data = 5;
     head->next = NULL;
