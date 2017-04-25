@@ -10,29 +10,19 @@ typedef struct node {
 int get_length(struct node* head);
 node* generate_node(struct node* head);
 int generate_nodes(struct node* last, int length);
-int free_nodes(struct node* n);
+int free_nodes(struct node** headref);
 node* get_nth(struct node* head, int n);
 
 int main(void){
-    node head;
-    head.data = 5;
-    head.next = NULL;
+    node *head = (node *) malloc(sizeof(node));
+    head->data = 5;
+    head->next = NULL;
 
-    generate_nodes(&head, 6);
+    node *ptr = head;
 
-    int length = get_length(head.next);
+    generate_nodes(head, 6);
 
-    node *n = get_nth(&head, 3);
-
-    printf("Node 3: %p\n", n);
-
-    printf("%d\n", length);
-
-    free_nodes(&head);
-
-    /* int l = get_length(&head);*/
-
-    /* printf("%d\n", l); */
+    free_nodes(&ptr);
 }
 
 node* generate_node(struct node* previous) {
@@ -98,26 +88,20 @@ node* get_nth(struct node* head, int n) {
     return head;
 }
 
-int free_nodes(struct node* n) {
-    if(n == NULL) {
-        /* Cannot remove null */
-        return 1;
+int free_nodes(struct node** headref) {
+    assert(headref != NULL);
+
+    struct node *head = *headref;
+    struct node *next = NULL;
+
+    while(head != NULL) {
+        printf("Freeing %p \n", head);
+        next = head->next;
+        head->next = NULL;
+        //free(head);
+        
+        head = next;
     }
-
-    struct node* current = n->next;
-    struct node* next;
-
-    while(current->next != NULL) {
-        next = current->next;
-        current->next = NULL;
-        free(current);
-        current = next;
-    }
-
-    current->next = NULL;
-    free(current);
-
-    n->next = NULL;
 
     /* All good */
     return 0;
