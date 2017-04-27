@@ -8,8 +8,8 @@ typedef struct node {
 } node;
 
 int get_length(struct node* head);
-node* generate_node(struct node* head);
-int generate_nodes(struct node* last, int length);
+node* generate_node(int data);
+node* generate_list(int length);
 int free_nodes(struct node** headref);
 node* get_nth(struct node* head, int n);
 
@@ -24,49 +24,41 @@ int main(void){
     The Developer has control of memory that is dynamically allocated
 
     */
-    node *head = (node *) malloc(sizeof(node));
-    head->data = 5;
-    head->next = NULL;
+    node *head = generate_list(10);
 
     node *ptr = head;
-
-    generate_nodes(head, 6);
 
     free_nodes(&ptr);
 }
 
-node* generate_node(struct node* previous) {
+node* generate_node(int data) {
     node *n = (node *) malloc(sizeof(node));
-    n->data = 5;
+    n->data = data;
     n->next = NULL;
-
-    previous->next = n;
 
     return n;
 }
 
-int generate_nodes(struct node* last, int length) {
-    if(last == NULL) {
-        /* Error Code 1 */
-        return 1;
-    }
-
-    if(length == 0) {
-        /* Exit out of function. No new nodes for list */
+node* generate_list(int length) {
+    if(length <= 0) {
+        /* Exit out of function. No negative numbers */
         return 0;
     }
 
-    struct node* previous = last;
+     node *head = generate_node(8);
+
+    struct node* previous = head;
 
     while(length >= 0) {
-        node *n = generate_node(previous);
+        node *n = generate_node(length);
+        previous->next = n;
         previous = n;
 
         length--;
     }
 
-    /* All good */
-    return 0;
+    /* All good return the pointer to the head of the list*/
+    return head;
 }
 
 int get_length(struct node* head) {
