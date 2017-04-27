@@ -9,9 +9,10 @@ typedef struct node {
 
 int get_length(struct node* head);
 node* generate_node(int data);
-node* generate_list(int length);
+void generate_list(node** headref, int length);
 int free_nodes(struct node** headref);
 node* get_nth(struct node* head, int n);
+void append_node(struct node** headref, int data);
 
 int main(void){
     /* 
@@ -24,7 +25,9 @@ int main(void){
     The Developer has control of memory that is dynamically allocated
 
     */
-    node *head = generate_list(10);
+    node *head = NULL;
+    
+    generate_list(&head, 10);
 
     node *ptr = head;
 
@@ -39,13 +42,14 @@ node* generate_node(int data) {
     return n;
 }
 
-node* generate_list(int length) {
-    if(length <= 0) {
-        /* Exit out of function. No negative numbers */
-        return 0;
+void generate_list(node** headref, int length) {
+    assert(length >= 0);
+
+    if(*headref == NULL) {
+        (*headref) = generate_node(90);
     }
 
-     node *head = generate_node(8);
+    node *head = *headref;
 
     struct node* previous = head;
 
@@ -56,9 +60,6 @@ node* generate_list(int length) {
 
         length--;
     }
-
-    /* All good return the pointer to the head of the list*/
-    return head;
 }
 
 int get_length(struct node* head) {
