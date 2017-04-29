@@ -179,3 +179,7 @@ struct node* reverse(struct node* list) {
 
     return prev;
 }
+
+void delete_node(struct node* headref, int which) {
+    
+}
