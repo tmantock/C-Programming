@@ -8,65 +8,58 @@ typedef struct node {
 } node;
 
 int get_length(struct node* head);
-node* generate_node(struct node* head);
-int generate_nodes(struct node* last, int length);
-int free_nodes(struct node* n);
+node* generate_node(int data);
+void generate_list(node** headref, int length);
+int free_nodes(struct node** headref);
 node* get_nth(struct node* head, int n);
+void append_node(struct node** headref, int data);
 
 int main(void){
-    node head;
-    head.data = 5;
-    head.next = NULL;
+    /* 
+    
+    Changes:
 
-    generate_nodes(&head, 6);
+    head is now dynamically allocated
+    You cannot free memory that you do not control
+    C has control of memory that is created by normal means
+    The Developer has control of memory that is dynamically allocated
 
-    int length = get_length(head.next);
+    */
+    node *head = NULL;
+    
+    generate_list(&head, 10);
 
-    node *n = get_nth(&head, 3);
+    node *ptr = head;
 
-    printf("Node 3: %p\n", n);
-
-    printf("%d\n", length);
-
-    free_nodes(&head);
-
-    /* int l = get_length(&head);*/
-
-    /* printf("%d\n", l); */
+    free_nodes(&ptr);
 }
 
-node* generate_node(struct node* previous) {
+node* generate_node(int data) {
     node *n = (node *) malloc(sizeof(node));
-    n->data = 5;
+    n->data = data;
     n->next = NULL;
-
-    previous->next = n;
 
     return n;
 }
 
-int generate_nodes(struct node* last, int length) {
-    if(last == NULL) {
-        /* Error Code 1 */
-        return 1;
+void generate_list(node** headref, int length) {
+    assert(length >= 0);
+
+    if(*headref == NULL) {
+        (*headref) = generate_node(90);
     }
 
-    if(length == 0) {
-        /* Exit out of function. No new nodes for list */
-        return 0;
-    }
+    node *head = *headref;
 
-    struct node* previous = last;
+    struct node* previous = head;
 
     while(length >= 0) {
-        node *n = generate_node(previous);
+        node *n = generate_node(length);
+        previous->next = n;
         previous = n;
 
         length--;
     }
-
-    /* All good */
-    return 0;
 }
 
 int get_length(struct node* head) {
@@ -98,26 +91,20 @@ node* get_nth(struct node* head, int n) {
     return head;
 }
 
-int free_nodes(struct node* n) {
-    if(n == NULL) {
-        /* Cannot remove null */
-        return 1;
+int free_nodes(struct node** headref) {
+    assert(headref != NULL);
+
+    struct node *head = *headref;
+    struct node *next = NULL;
+
+    while(head != NULL) {
+        printf("Freeing %p \n", head);
+        next = head->next;
+        head->next = NULL;
+        //free(head);
+        
+        head = next;
     }
-
-    struct node* current = n->next;
-    struct node* next;
-
-    while(current->next != NULL) {
-        next = current->next;
-        current->next = NULL;
-        free(current);
-        current = next;
-    }
-
-    current->next = NULL;
-    free(current);
-
-    n->next = NULL;
 
     /* All good */
     return 0;
