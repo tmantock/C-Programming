@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 typedef struct node {
     int data;
@@ -11,6 +12,7 @@ node* generate_node(struct node* head);
 int generate_nodes(struct node* last, int length);
 int free_nodes(struct node* n);
 node* get_nth(struct node* head, int n);
+void append_node(struct node** headref, int data);
 
 int main(void){
     node head;
@@ -23,7 +25,13 @@ int main(void){
 
     node *n = get_nth(&head, 3);
 
-    printf("Node 3: %p\n", n);
+    printf("%d\n", length);
+
+    node *h = &head;
+
+    append_node(&h, 6);
+
+    length = get_length(head.next);
 
     printf("%d\n", length);
 
@@ -71,7 +79,6 @@ int generate_nodes(struct node* last, int length) {
 int get_length(struct node* head) {
     int length = 0;
     while(head != NULL) {
-        printf("Data %d: %p\n", length, head);
         length++;
         head = head->next;
     }
