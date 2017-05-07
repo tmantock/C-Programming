@@ -16,7 +16,6 @@ void append_node(struct node** headref, int data);
 
 int main(void){
     /* 
-    
     Changes:
 
     head is now dynamically allocated
@@ -65,7 +64,6 @@ void generate_list(node** headref, int length) {
 int get_length(struct node* head) {
     int length = 0;
     while(head != NULL) {
-        printf("Data %d: %p\n", length, head);
         length++;
         head = head->next;
     }
