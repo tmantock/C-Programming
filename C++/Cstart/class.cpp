@@ -10,6 +10,10 @@ class ComplexNumber {
             cout << "No arg-constructot called" << endl;
         }
 
+        ComplexNumber(float r, float c) : real(r), complex(c) {
+            cout << "Inside Two Argument Constructor" << endl;
+        }
+
         void setNumbers(float r, float c) {
             real = r;
             complex = c;
@@ -49,12 +53,14 @@ class Student {
 };
 
 int main() {
-    ComplexNumber c;
-    c.print();
-    c.setNumbers(3.54, 69.69);
-    c.print();
+    ComplexNumber * c = new ComplexNumber(3.54, 89.90);
+    c->print();
+    // c.setNumbers(3.54, 69.69);
+    // c.print();
     
     const char name[10] = "Tevin";
     Student s(name);
     cout << "Exiting" << endl;
+
+    delete c;
 }
