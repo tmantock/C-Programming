@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class ComplexNumber {
@@ -39,17 +40,16 @@ class ComplexNumber {
 
 class Student {
     private:
-        char * name;
+        string name;
     public:
-        Student(const char * n) {
-            name = new char[50];
-            strcpy(name, n);
+        Student(string n) {
+            name = n;
             cout << "Initialized string to " << name << endl;
         }
 
         ~Student() {
             cout << "Freeing student " << name << endl;
-            delete[] name;
+            //delete[] name;
         }
 };
 
@@ -59,7 +59,7 @@ int main() {
     // c.setNumbers(3.54, 69.69);
     // c.print();
     
-    const char name[10] = "Tevin";
+    const string name = "Tevin";
     Student s(name);
     cout << "Exiting" << endl;
 
