@@ -62,5 +62,13 @@ int main() {
     Student s(name);
     cout << "Exiting" << endl;
 
+    ComplexNumber * cDynamic = new ComplexNumber[10];
+
+    for(int i = 0; i < 10; i++) {
+        cDynamic[i].print();
+    }
+
+    delete[] cDynamic;
+
     delete c;
 }
