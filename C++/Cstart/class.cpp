@@ -28,7 +28,8 @@ class ComplexNumber {
         }
 
         void print() {
-            cout << "Real " << real << " Complex " << complex << endl;
+            cout << "This object is located at " << this << endl;
+            cout << "Real " << this->real << " Complex " << this->complex << endl;
         }
 
         ~ComplexNumber() {
