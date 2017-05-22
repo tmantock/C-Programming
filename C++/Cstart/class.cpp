@@ -20,15 +20,15 @@ class ComplexNumber {
             complex = c;
         }
 
-        float getReal() {
+        float getReal() const {
             return real;
         }
 
-        float getComplex() {
+        float getComplex() const {
             return complex;
         }
 
-        void print() {
+        void print() const {
             cout << "This object is located at " << this << endl;
             cout << "Real " << this->real << " Complex " << this->complex << endl;
         }
@@ -45,6 +45,12 @@ class Student {
         Student(string n) {
             name = n;
             cout << "Initialized string to " << name << endl;
+            // Can also use .length()
+            cout << "String length of " << name.size() << endl;
+            cout << "First 3 letters " << name.substr(0,3) << endl;
+            cout << "Erase " << name.erase(0,3) << endl;
+            cout << "Insert " << name.insert(0, "S") << endl;
+            cout << "Size of name is " << sizeof(name) << " bytes" << endl;
         }
 
         ~Student() {
@@ -63,13 +69,13 @@ int main() {
     Student s(name);
     cout << "Exiting" << endl;
 
-    ComplexNumber * cDynamic = new ComplexNumber[10];
+    //ComplexNumber * cDynamic = new ComplexNumber[10];
 
-    for(int i = 0; i < 10; i++) {
-        cDynamic[i].print();
-    }
+    // for(int i = 0; i < 10; i++) {
+    //     cDynamic[i].print();
+    // }
 
-    delete[] cDynamic;
+    // delete[] cDynamic;
 
     delete c;
 }
