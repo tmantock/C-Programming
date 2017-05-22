@@ -40,7 +40,7 @@ class ComplexNumber {
 
 class Student {
     private:
-        string name;
+        mutable string name;
     public:
         Student(string n) {
             name = n;
@@ -51,6 +51,11 @@ class Student {
             cout << "Erase " << name.erase(0,3) << endl;
             cout << "Insert " << name.insert(0, "S") << endl;
             cout << "Size of name is " << sizeof(name) << " bytes" << endl;
+        }
+
+        void print() const {
+            this->name = "Joe";
+            cout << "Student is " << this->name << endl;
         }
 
         ~Student() {
@@ -67,6 +72,7 @@ int main() {
     
     const string name = "Tevin";
     Student s(name);
+    s.print();
     cout << "Exiting" << endl;
 
     //ComplexNumber * cDynamic = new ComplexNumber[10];
