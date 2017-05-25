@@ -99,7 +99,7 @@ int free_nodes(struct node** headref) {
         printf("Freeing %p \n", head);
         next = head->next;
         head->next = NULL;
-        //free(head);
+        free(head);
         
         head = next;
     }
