@@ -1,5 +1,14 @@
 #include <stdio.h>
 
+void complement(int n) {
+    int mask = -1;
+    while(n & mask) {
+        mask <<= 1;
+    }
+    printf("%d\n", mask);
+    printf("%d\n", ~n & ~mask);
+}
+
 int main(void) {
     int x = 6;
     x = x << 2;
@@ -12,4 +21,8 @@ int main(void) {
     printf("%d\n", y);
 
     printf("%d\n", x & y);
+
+    printf("%d\n", ~7 + 1);
+
+    complement(5);
 }
