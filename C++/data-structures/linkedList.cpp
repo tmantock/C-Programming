@@ -6,32 +6,44 @@ class LinkedList{
         int x;
         Node *next;
     };
+    // private member
+    private:
+       Node *head;
+       int length;
 
     // public member
     public:
         // constructor
         LinkedList(){
-            this->head = NULL;
+            head = NULL;
+            length = 0;
+        }
+
+        int getLength() {
+            return length;
         }
 
         void prepend(int val){
             Node *n = new Node();
             n->x = val;
-            n->next = this->head;
+            n->next = head;
 
-            this->head = n;
+            head = n;
+            length++;
         }
 
         void append(int val) {
+            length++;
+
             Node *n = new Node();
             n->x = val;
             n->next = NULL;
-            if(this->head == NULL) {
-                this->head = n;
+            if(head == NULL) {
+                head = n;
                 return;
             }
 
-            Node *node = this->head;
+            Node *node = head;
 
             while(node->next != NULL) {
                 node = node->next;
@@ -41,11 +53,11 @@ class LinkedList{
         }
 
         void traverse() {
-            if(this->head == NULL) {
+            if(head == NULL) {
                 return;
             }
 
-            Node *node = this->head;
+            Node *node = head;
 
             while(node != NULL) {
                 cout << node->x << endl;
@@ -54,17 +66,13 @@ class LinkedList{
         }
 
         int popValue(){
-            Node *n = this->head;
+            Node *n = head;
             int ret = n->x;
 
-            this->head = this->head->next;
+            head = head->next;
             delete n;
             return ret;
         }
-
-    // private member
-    private:
-       Node *head;
 };
 
 int main() {
@@ -77,6 +85,7 @@ int main() {
 
     list.traverse();
 
+    cout << list.getLength() << endl;
     cout << list.popValue() << endl;
     cout << list.popValue() << endl;
     cout << list.popValue() << endl;
