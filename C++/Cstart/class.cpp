@@ -46,11 +46,20 @@ class Student {
             name = n;
             cout << "Initialized string to " << name << endl;
             // Can also use .length()
-            cout << "String length of " << name.size() << endl;
-            cout << "First 3 letters " << name.substr(0,3) << endl;
-            cout << "Erase " << name.erase(0,3) << endl;
-            cout << "Insert " << name.insert(0, "S") << endl;
-            cout << "Size of name is " << sizeof(name) << " bytes" << endl;
+            // cout << "String length of " << name.size() << endl;
+            // cout << "First 3 letters " << name.substr(0,3) << endl;
+            // cout << "Erase " << name.erase(0,3) << endl;
+            // cout << "Insert " << name.insert(0, "S") << endl;
+            // cout << "Size of name is " << sizeof(name) << " bytes" << endl;
+        }
+
+        void changeStudentName(string newName) {
+            this->name = newName;
+        }
+
+        void print() {
+            this->changeStudentName("Jenny");
+            cout << "Student is " << this->name << endl;
         }
 
         void print() const {
@@ -65,14 +74,17 @@ class Student {
 };
 
 int main() {
-    ComplexNumber * c = new ComplexNumber(3.54, 89.90);
-    c->print();
+    // ComplexNumber * c = new ComplexNumber(3.54, 89.90);
+    // c->print();
     // c.setNumbers(3.54, 69.69);
     // c.print();
     
-    const string name = "Tevin";
-    Student s(name);
+    Student s("Tevin");
+
+    const Student cs("Jerry");
     s.print();
+    cs.print();
+
     cout << "Exiting" << endl;
 
     //ComplexNumber * cDynamic = new ComplexNumber[10];
@@ -83,5 +95,5 @@ int main() {
 
     // delete[] cDynamic;
 
-    delete c;
+    // delete c;
 }

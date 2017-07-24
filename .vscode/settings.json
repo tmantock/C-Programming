@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "linkedlist.c": "cpp",
+        "stack.c": "cpp",
+        "string": "cpp",
+        "__locale": "cpp",
+        "memtest.c": "cpp"
+    }
+}
