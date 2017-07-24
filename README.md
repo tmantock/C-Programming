@@ -1,3 +1,3 @@
-#C++ Code
+# C Languages
 
-Learning C++ code to familiarize myself with C++ and eventually C.
+Learning C and C++.
