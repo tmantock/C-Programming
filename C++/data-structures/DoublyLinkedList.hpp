@@ -17,6 +17,7 @@ class DoublyLinkedList{
        Node *head;
        Node *tail;
        int length;
+       Node* initNode(int);
 
     // public member
     public:

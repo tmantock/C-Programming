@@ -3,7 +3,17 @@
 // constructor
 DoublyLinkedList::DoublyLinkedList(){
     head = NULL;
+    tail = NULL;
     length = 0;
+}
+
+DoublyLinkedList::Node* DoublyLinkedList::initNode(int data) {
+    Node *n = new Node();
+    n->data = data;
+    n->prev = NULL;
+    n->next = NULL;
+
+    return n;
 }
 
 int DoublyLinkedList::getLength() {
@@ -11,11 +21,19 @@ int DoublyLinkedList::getLength() {
 }
 
 void DoublyLinkedList::prepend(int val){
-    Node *n = new Node();
-    n->data = val;
-    n->prev =  NULL;
+    Node *n = initNode(val);
+
+    if(head == NULL) {
+        head = n;
+        return;
+    }
+
     head->prev = n;
     n->next = head;
+
+    if(tail == NULL) {
+        tail = head;
+    }
 
     head = n;
     length++;
@@ -24,10 +42,7 @@ void DoublyLinkedList::prepend(int val){
 void DoublyLinkedList::append(int val) {
     length++;
 
-    Node *n = new Node();
-    n->data = val;
-    n->next = NULL;
-    n->prev = NULL;
+    Node *n = initNode(val);
 
     if(head == NULL) {
         head = n;

@@ -2,9 +2,10 @@
 
 int main() {
     DoublyLinkedList l = DoublyLinkedList();
-    l.append(5);
-    l.append(6);
-    l.append(7);
-    l.append(8);
+    l.prepend(5);
+    l.prepend(6);
+    l.prepend(7);
+    l.prepend(8);
+    l.append(10);
     l.traverseInReverse();
 }
