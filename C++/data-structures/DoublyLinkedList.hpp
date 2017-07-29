@@ -8,7 +8,8 @@ using std::endl;
 
 class DoublyLinkedList{
     struct Node {
-        int data;
+        int key;
+        int value;
         Node *prev;
         Node *next;
     };
@@ -17,17 +18,18 @@ class DoublyLinkedList{
        Node *head;
        Node *tail;
        int length;
-       Node* initNode(int);
+       Node* initNode(int, int);
 
     // public member
     public:
         // constructor
         DoublyLinkedList();
         int getLength();
-        void prepend(int val);
-        void append(int val);
+        void prepend(int, int);
+        void append(int, int);
         void traverse();
         void traverseInReverse();
+        int search(int);
         int popValue();
         ~DoublyLinkedList();
 };

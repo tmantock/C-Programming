@@ -7,9 +7,10 @@ DoublyLinkedList::DoublyLinkedList(){
     length = 0;
 }
 
-DoublyLinkedList::Node* DoublyLinkedList::initNode(int data) {
+DoublyLinkedList::Node* DoublyLinkedList::initNode(int key, int value) {
     Node *n = new Node();
-    n->data = data;
+    n->key = key;
+    n->value = value;
     n->prev = NULL;
     n->next = NULL;
 
@@ -20,8 +21,8 @@ int DoublyLinkedList::getLength() {
     return length;
 }
 
-void DoublyLinkedList::prepend(int val){
-    Node *n = initNode(val);
+void DoublyLinkedList::prepend(int key, int val){
+    Node *n = initNode(key, val);
 
     if(head == NULL) {
         head = n;
@@ -39,10 +40,10 @@ void DoublyLinkedList::prepend(int val){
     length++;
 }
 
-void DoublyLinkedList::append(int val) {
+void DoublyLinkedList::append(int key, int val) {
     length++;
 
-    Node *n = initNode(val);
+    Node *n = initNode(key, val);
 
     if(head == NULL) {
         head = n;
@@ -69,7 +70,7 @@ void DoublyLinkedList::traverse() {
     Node *node = head;
 
     while(node != NULL) {
-        cout << node->data << endl;
+        cout << node->value << endl;
         node = node->next;
     }
 }
@@ -81,25 +82,37 @@ void DoublyLinkedList::traverseInReverse() {
 
     Node *node = tail;
     while(node != NULL) {
-        cout << node->data << endl;
+        cout << node->value << endl;
         node = node->prev;
     }
 }
 
 int DoublyLinkedList::popValue(){
     Node *n = head;
-    int ret = n->data;
+    int ret = n->value;
 
     head = head->next;
     delete n;
     return ret;
 }
 
-DoublyLinkedList::~DoublyLinkedList() {
+int DoublyLinkedList::search(int key) {
     if(head == NULL) {
-        return;
+        return 0;
     }
 
+    Node *node = head;
+
+    while(node != NULL) {
+        if(node->key == key) {
+            return node->value;
+        }
+
+        node = node->next;
+    }
+}
+
+DoublyLinkedList::~DoublyLinkedList() {
     Node *node = head;
     while(node != NULL) {
         Node *next = node->next;
