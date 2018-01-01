@@ -24,6 +24,9 @@ int Stack::pop() {
     int value = stack[stack.size() - 1];
     stack.pop_back();
 
+    lk.unlock();
+    cv.notify_one();
+
     return value;
 }
 
